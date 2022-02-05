@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+
 
 @Entity
 public class Terminal implements Serializable {
@@ -11,11 +14,15 @@ public class Terminal implements Serializable {
 
 	@Id	
 	private Integer logic;
+	@NotEmpty(message="Campo obrigatório")	
 	private String serial;
-	private String model;	
+	@NotEmpty(message="Campo obrigatório")	
+	private String model;
+	@Min(0)
 	private Integer sam;
 	private String ptid;
 	private Integer plat;
+	@NotEmpty(message="Campo obrigatório")	
 	private String version;
 	private Integer mxr;
 	private Integer mxf;
